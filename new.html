@@ -33,12 +33,12 @@
 
         <main>
             <div v-if="showproduct" style="display: inline-flex;">
-                <h3>subjects tart</h3>
+                <h3>subjects start</h3>
                 <ul>
             <li><button v-on:click="sortbyloca(products.location)"> sortbylocation </button></li>
             <li><button v-on:click="sortbyprice(products.price)"> sortbyprice </button> </li>
             <li><button v-on:click="sortbyspace(products.availableInventory)"> sortbyspace </button> </li>
-         <li><input type="radio" name="br"  v-on:click="descending(products.title)"> DESCENDING </input></li>
+         <li><input type="radio" checked name="br"  v-on:click="descending(products.title)"> DESCENDING </input></li>
          <li><input type="radio"  name="br" v-on:click="ascending(products.title)"> ASCENDING </input></li>
                 </ul>
 
@@ -63,22 +63,17 @@
 
         <div v-else>
             <h2>Checkout</h2>
-            <P>
-            <strong>NAME: </strong>
-            <input type="text" v-model.trim="order.name"/>
-            </P>
-            <P>
-            <strong>PHONE: </strong>
-            <input  v-model.number="order.phone" type="tel"/>
-           </P>
-
-           
-             <P>NAME: {{order.name}}</P>
-
-             <P> PHONE: {{order.phone}}</P>
-
-             <P><button v-on:click="submitForm">confirm order</button></P>
-           
+            
+            
+            <form @submit="submitForm">
+                <ul>
+                     <li>   <label  for="Name" >Name:</label> </li>               
+                    <li>    <input type="text" id="Name" name="Name" required></li>     
+                    <li>    <label  for="phone">Phone:</label> </li>
+                    <li>    <input type="tel" id="phone" placeholder="e.g 00974 12345678" name="phone" required> </li>
+                 </ul>
+             <input type="submit">
+          </form>
 
 
 
